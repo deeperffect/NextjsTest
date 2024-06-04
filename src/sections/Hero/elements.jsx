@@ -52,12 +52,13 @@ export const StyledImageContainer = styled(({ ...props }) => (
 	margin-left: auto;
 	position: relative;
 	padding-bottom: 59.5%;
+	overflow: hidden;
 
 	img {
 		position: absolute;
 		inset: 0;
 		width: 100%;
-		height: auto;
+		height: 100%;
 		object-fit: cover;
 		object-position: center;
 	}
