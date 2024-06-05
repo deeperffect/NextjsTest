@@ -3,9 +3,10 @@
 import Image from "next/image";
 import { CardColumns, CardContent, CardIcon, CardWrapper } from "./elements";
 
-const Card = ({ image, title, description }) => {
+const Card = ({ image, title, description, ...props }) => {
+	console.log(props);
 	return (
-		<CardWrapper>
+		<CardWrapper {...props}>
 			<CardColumns>
 				<CardIcon>
 					<Image
@@ -17,7 +18,7 @@ const Card = ({ image, title, description }) => {
 				</CardIcon>
 				<CardContent>
 					<h4>{title}</h4>
-					<p>{description}</p>
+					<p dangerouslySetInnerHTML={description} />
 				</CardContent>
 			</CardColumns>
 		</CardWrapper>
