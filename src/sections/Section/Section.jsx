@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import {
+	SectionBackground,
 	SectionBody,
 	SectionColumns,
 	SectionContent,
@@ -11,10 +12,24 @@ import {
 } from "./elements";
 import Card from "@/collections/Card/Card";
 
-export const Section = ({ image, title, description, items }) => {
+export const Section = ({
+	image,
+	title,
+	description,
+	items,
+	sectionBackground,
+}) => {
 	return (
 		<SectionWrapper>
 			<SectionShell>
+				<SectionBackground>
+					<Image
+						src={sectionBackground.src}
+						alt={sectionBackground.alt}
+						width={sectionBackground.width}
+						height={sectionBackground.height}
+					/>
+				</SectionBackground>
 				<SectionHead>
 					<h2>{title}</h2>
 					<p>{description}</p>
@@ -30,8 +45,14 @@ export const Section = ({ image, title, description, items }) => {
 							/>
 						</SectionImage>
 						<SectionContent>
-							{items.map((item) => {
-								return <Card key={item.title} {...item}></Card>;
+							{items.map((item, index) => {
+								return (
+									<Card
+										style={{ "--card-index": index }}
+										key={item.title}
+										{...item}
+									></Card>
+								);
 							})}
 						</SectionContent>
 					</SectionColumns>
