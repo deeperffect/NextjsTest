@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const SectionWrapper = styled.section`
 	padding: 5rem 0;
+	overflow: hidden;
 `;
 
 export const SectionShell = styled.div`
@@ -47,11 +48,23 @@ export const SectionColumns = styled.div`
 	display: grid;
 	grid-template-columns: 1fr 2fr;
 	gap: 5rem;
+
+	@media (max-width: 1199px) {
+		gap: 1.5rem;
+	}
+
+	@media (max-width: 1023px) {
+		grid-template-columns: auto;
 `;
 
 export const SectionImage = styled.figure`
 	font-size: 0;
 	margin: 0;
+
+	@media (max-width: 1023px) {
+		max-width: min(100%, 350px);
+		margin: 0 auto;
+	}
 
 	img {
 		display: block;
@@ -66,6 +79,10 @@ export const SectionContent = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	gap: 2rem;
+
+	@media (max-width: 1023px) {
+		align-items: center;
+	}
 `;
 
 export const StyledImageContainer = styled(({ ...props }) => (
