@@ -85,6 +85,10 @@ export const StyledHeroWrapper = styled(StyledContainer)`
 		gap: 2rem;
 	}
 
+	@media (max-width: 1024px) {
+		padding: 1rem;
+	}
+
 	@media (max-width: 767px) {
 		padding: 1rem;
 		flex-direction: column-reverse;
